@@ -1,12 +1,21 @@
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue'
+import VueRouter from 'vue-router'
+import VueScrollTo from 'vue-scrollto'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'jquery/dist/jquery.min.js'
-import VueScrollTo from 'vue-scrollto'
 
+import { routes } from './routes/routes.js'
 
+const router = new VueRouter({
+  routes: routes,
+  mode: 'history'
+})
+
+Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.use(VueScrollTo, {
   container: "body",
@@ -23,5 +32,6 @@ Vue.use(VueScrollTo, {
 
 new Vue({
   el: '#app',
+  router,
   render: h => h(App)
 })
