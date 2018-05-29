@@ -3,15 +3,23 @@ import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-//import 'jquery/dist/jquery.min.js'
-import './assets/js/jquery.easing.min.js'
-//import './assets/js/scrolling-nav.js'
 import 'jquery/dist/jquery.min.js'
-// window.jQuery = jQuery
-// window.$ = jQuery
+import VueScrollTo from 'vue-scrollto'
 
 
 Vue.use(BootstrapVue)
+Vue.use(VueScrollTo, {
+  container: "body",
+  duration: 900,
+  easing: "ease-out",
+  offset: -45,
+  cancelable: true,
+  onStart: false,
+  onDone: false,
+  onCancel: false,
+  x: false,
+  y: true
+})
 
 new Vue({
   el: '#app',

@@ -1,25 +1,27 @@
 <template>
   <div id="app">
-    <b-navbar fixed="top" toggleable="md" type="dark" variant="info">
-      <b-navbar-brand href="#">Logo</b-navbar-brand>
+    <b-navbar fixed="top" toggleable="md" type="dark" variant="primary">
+      <b-navbar-brand href="#" v-scroll-to="'#top'">
+        <b-img class="logo" rounded width="80px" height="60px" fluid="" alt="" />Logo
+      </b-navbar-brand>
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav class="ml-auto">
-          <b-nav-item href="#">Sobre</b-nav-item>
-          <b-nav-item href="#">Serviços</b-nav-item>
+          <b-nav-item href="#" v-scroll-to="'#sobre'">Sobre</b-nav-item>
+          <b-nav-item href="#" v-scroll-to="'#servicos'" >Serviços</b-nav-item>
           <b-nav-item href="#">Login</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
 
-    <header class="bg-primary text-white">
+    <header id="top" class="text-white" :style=" {backgroundImage: `url('${bubbles}')`} ">
       <b-container class="text-center">
         <h1>Lava Jato Papaléguas</h1>
         <p class="lead">A landing page template freshly redesigned for Bootstrap 4</p>
       </b-container>
     </header>
 
-    <section id="sobre">
+    <section class="bg-dark text-white" id="sobre">
       <b-container>
         <b-row>
           <b-col lg="8" mx-auto>
@@ -36,43 +38,67 @@
       </b-container>
     </section>
 
+    <section id="servicos" :style=" {backgroundImage: `url('${lavando}')`} ">
+      <b-container class="text-center services">
+        <b-row>
+          <b-col lg="6">
+            <h2>Serviço 1</h2>
+            <p>Serviço muito bonito</p>
+            <b-list-group>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Aliquam tincidunt mauris eu risus.</li>
+              <li>Vestibulum auctor dapibus neque.</li>
+            </b-list-group>
+          </b-col>
+          <b-col lg="6">
+            <h2>Serviço 2</h2>
+            <p>Serviço muito bonito</p>
+            <b-list-group>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Aliquam tincidunt mauris eu risus.</li>
+              <li>Vestibulum auctor dapibus neque.</li>
+            </b-list-group>
+          </b-col>
+        </b-row>
+      </b-container>
+      <b-container class="text-center services">
+         <b-row>
+          <b-col lg="6">
+            <h2>Serviço 3</h2>
+            <p>Serviço muito bonito</p>
+            <b-list-group>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Aliquam tincidunt mauris eu risus.</li>
+              <li>Vestibulum auctor dapibus neque.</li>
+            </b-list-group>
+          </b-col>
+          <b-col lg="6">
+            <h2>Serviço 4</h2>
+            <p>Serviço muito bonito</p>
+            <b-list-group>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Aliquam tincidunt mauris eu risus.</li>
+              <li>Vestibulum auctor dapibus neque.</li>
+            </b-list-group>
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
+
   </div>
 </template>
 
 <script>
-    
-    // $(document).ready(function($) {
-    //     // Smooth scrolling using jQuery easing
-    //   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    //     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-    //       var target = $(this.hash);
-    //       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-    //       if (target.length) {
-    //         $('html, body').animate({
-    //           scrollTop: (target.offset().top - 54)
-    //         }, 1000, "easeInOutExpo");
-    //         return false;
-    //       }
-    //     }
-    //   });
-
-    //   // Closes responsive menu when a scroll trigger link is clicked
-    //   $('.js-scroll-trigger').click(function() {
-    //     $('.navbar-collapse').collapse('hide');
-    //   });
-
-    //   // Activate scrollspy to add active class to navbar items on scroll
-    //   $('body').scrollspy({
-    //     target: '#mainNav',
-    //     offset: 54
-    //   });
-    // })
 export default {
-  
+
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      roadrunner: 'src/assets/papa.jpeg',
+      lavando: 'src/assets/lavando.jpg',
+      url1: 'src/assets/700-450.png',
+      banner: 'src/assets/banner.jpg',
+      bubbles: 'src/assets/bubbles.jpeg'
     }
   }
 }
@@ -112,9 +138,20 @@ li {
 }
 
 a {
-  color: #42b983;
+  outline: none;
 }
-.logo {
-  width: 100%;
+
+
+.services {
+  padding: 5%
 }
+#top  {
+  background-repeat: no-repeat;
+  background-position: left;
+  margin-top: 50px;
+   text-shadow: 2px 2px #000;
+}
+
+
+
 </style>
