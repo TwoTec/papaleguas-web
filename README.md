@@ -1,6 +1,6 @@
 # papaleguas-web
 
-> Front-end do projeto Papaléguas Car Wash
+> Front end do projeto papaleguas
 
 ## Build Setup
 
