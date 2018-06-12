@@ -1,6 +1,43 @@
 <template>
   <v-app>
-    <!--<v-navigation-drawer
+    <v-toolbar app>
+      <v-toolbar-title>Papaléguas</v-toolbar-title>
+    </v-toolbar>
+    <v-content>
+      <v-container align-content-center>
+        <v-layout row wrap>
+          <img class="logo" src="../public/lava-jato.jpg" alt="">
+        </v-layout>
+
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+    <v-footer app></v-footer>
+  </v-app>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+      }
+    }
+  }
+</script>
+<style>
+  .logo {
+    margin-top: 5%;
+    height: 100%;
+  }
+</style>
+
+
+
+
+
+
+<!--<template>
+  <v-app>
+    <v-navigation-drawer
       fixed
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -21,7 +58,7 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-    </v-navigation-drawer> -->
+    </v-navigation-drawer>
     <v-toolbar fixed app :clipped-left="clipped">
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn icon @click.stop="miniVariant = !miniVariant">
@@ -105,5 +142,5 @@
     <v-icon large color="white">menu</v-icon>
     </v-toolbar>
   </v-app>
-</template>
+</template>-->
 
