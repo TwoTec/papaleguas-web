@@ -1,19 +1,5 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title>Papaléguas</v-toolbar-title>
-    </v-toolbar>
-    <v-content>
-      <v-container align-content-center>
-        <v-layout row wrap>
-          <img class="logo" src="../public/lava-jato.jpg" alt="">
-        </v-layout>
-
-        <router-view></router-view>
-      </v-container>
-    </v-content>
-    <v-footer app></v-footer>
-  </v-app>
+ <router-view></router-view>
 </template>
 <script>
   export default {
@@ -24,10 +10,7 @@
   }
 </script>
 <style>
-  .logo {
-    margin-top: 5%;
-    height: 100%;
-  }
+
 </style>
 
 
