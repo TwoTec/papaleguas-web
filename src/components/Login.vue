@@ -1,7 +1,7 @@
 <template>
   <v-app light>
-    <v-toolbar class="white">
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+    <v-toolbar class="white" fixed>
+      <logo></logo>
     </v-toolbar>
     <v-content>
       <section>
@@ -15,14 +15,66 @@
             <img src="public/img/lavajatologo.png" alt="Vuetify.js" height="200">
             <h1 class="white--text mb-2 display-1 text-xs-center"></h1>
             <div class="subheading mb-3 text-xs-center"></div>
-            <v-btn
-              class="blue lighten-2 mt-5"
-              dark
-              large
-              href="/pre-made-themes"
-            >
-              Entrar
-            </v-btn>
+            <!--MODAL-->
+
+            <v-dialog v-model="dialog" max-width="500px" persistent>
+              <v-btn
+                slot="activator"
+                class="blue lighten-2 mt-5"
+                dark
+                large
+                href="#"
+              >
+                Entrar
+              </v-btn>
+              <v-card>
+                <v-toolbar color="blue lighten-2">
+                  <logo></logo>
+                  <v-card-title class="white--text">
+                    <span class="headline">Preencha os campos para acessar</span>
+                  </v-card-title>
+                </v-toolbar>
+                <v-divider></v-divider>
+                <v-card-text>
+                  <v-form ref="form" @submit.prevent="logar()">
+                    <v-container grid-list-md>
+                      <v-layout wrap>
+                        <v-flex xs12 sm12 md12>
+                          <v-text-field
+                            v-model="email"
+                            type="email"
+                            label="Email"
+                            required
+                            class="input-group"
+                            ></v-text-field>
+                        </v-flex>
+                        <v-flex xs12 sm12 md12>
+                          <v-text-field
+                            v-model="senha"
+                            :append-icon="inputSenha ? 'visibility' : 'visibility_off'"
+                            :append-icon-cb="() => (inputSenha = !inputSenha)"
+                            :type="inputSenha ? 'password' : 'text'"
+                            required
+                            name="senha"
+                            label="Senha"
+                            class="input-group"
+                          ></v-text-field>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
+                    <small> *campo obrigatório</small>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+
+                        <v-btn color="blue lighten-2" flat @click="logar" @click.native="dialog = false">Entrar</v-btn>
+                        <v-btn color="red darken-1" flat @click="clear" @click.native="dialog = false">Fechar</v-btn>
+
+                    </v-card-actions>
+                  </v-form>
+                </v-card-text>
+              </v-card>
+            </v-dialog>
+
           </v-layout>
         </v-parallax>
       </section>
@@ -186,12 +238,35 @@
 </template>
 
 <script>
+import Logo from './shared/Logo.vue'
+
+
 export default {
+
+  components: {
+    logo : Logo
+  },
+
   data () {
     return {
-      title: 'Papaléguas'
+      title: 'Papaléguas',
+      dialog: false,
+      inputSenha: true,
+      email: '',
+      senha: ''
     }
-  }
+  },
+   methods: {
+     logar () {
+       console.log(this.form);
+       this.$refs.form.reset()
+
+     },
+     clear () {
+
+       this.$refs.form.reset()
+     }
+   }
 }
 </script>
 
