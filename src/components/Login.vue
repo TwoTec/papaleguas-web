@@ -41,19 +41,24 @@
                       <v-layout wrap>
                         <v-flex xs12 sm12 md12>
                           <v-text-field
+                            v-validate="'required|email'"
                             v-model="email"
-                            type="email"
+                            :error-messages="errors.collect('email')"
                             label="Email"
+                            data-vv-name="email"
                             required
                             class="input-group"
                             ></v-text-field>
                         </v-flex>
                         <v-flex xs12 sm12 md12>
                           <v-text-field
+                            v-validate="'required|min:6'"
                             v-model="senha"
                             :append-icon="inputSenha ? 'visibility' : 'visibility_off'"
                             :append-icon-cb="() => (inputSenha = !inputSenha)"
                             :type="inputSenha ? 'password' : 'text'"
+                            :error-messages="errors.collect('senha')"
+                            data-vv-name="senha"
                             required
                             name="senha"
                             label="Senha"
@@ -258,13 +263,13 @@ export default {
   },
    methods: {
      logar () {
-       console.log(this.form);
        this.$refs.form.reset()
 
      },
      clear () {
 
        this.$refs.form.reset()
+       this.$validator.reset()
      }
    }
 }
