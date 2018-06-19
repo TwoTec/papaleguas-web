@@ -30,9 +30,7 @@
               <v-card>
                 <v-toolbar color="blue lighten-2">
                   <logo></logo>
-                  <v-card-title class="white--text">
-                    <span class="headline">Preencha os campos para acessar</span>
-                  </v-card-title>
+                  <v-toolbar-title class="white--text">Acesso ao sistema</v-toolbar-title>
                 </v-toolbar>
                 <v-divider></v-divider>
                 <v-card-text>
@@ -71,7 +69,7 @@
                     <v-card-actions>
                       <v-spacer></v-spacer>
 
-                        <v-btn color="blue lighten-2" flat @click="logar" @click.native="dialog = false">Entrar</v-btn>
+                        <v-btn color="blue lighten-2" flat @click="logar">Entrar</v-btn>
                         <v-btn color="red darken-1" flat @click="clear" @click.native="dialog = false">Fechar</v-btn>
 
                     </v-card-actions>
@@ -263,7 +261,7 @@ export default {
   },
    methods: {
      logar () {
-       this.$refs.form.reset()
+       this.$validator.validateAll()
 
      },
      clear () {
