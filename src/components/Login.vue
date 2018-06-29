@@ -40,7 +40,7 @@
                         <v-flex xs12 sm12 md12>
                           <v-text-field
                             v-validate="'required|email'"
-                            v-model="email"
+                            v-model="login.email"
                             :error-messages="errors.collect('email')"
                             label="Email"
                             data-vv-name="email"
@@ -51,7 +51,7 @@
                         <v-flex xs12 sm12 md12>
                           <v-text-field
                             v-validate="'required|min:6'"
-                            v-model="senha"
+                            v-model="login.senha"
                             :append-icon="inputSenha ? 'visibility' : 'visibility_off'"
                             :append-icon-cb="() => (inputSenha = !inputSenha)"
                             :type="inputSenha ? 'password' : 'text'"
@@ -255,13 +255,19 @@ export default {
       title: 'Papaléguas',
       dialog: false,
       inputSenha: true,
-      email: '',
-      senha: ''
+      login: {
+        email: '',
+        senha: '',
+      },
+      url: 'http://localhost:3000'
     }
   },
    methods: {
      logar () {
        this.$validator.validateAll()
+       this.$http.post(`${this.url}/token`, this.login)
+       .then(res => console.log(res))
+       .catch(error => console.log(error))
 
      },
      clear () {

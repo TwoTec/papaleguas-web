@@ -7,8 +7,9 @@ import { routes } from './routes'
 import VeeValidate from 'vee-validate'
 import pt_BR from 'vee-validate/dist/locale/pt_BR'
 import VueI18n from 'vue-i18n'
+import VueResource from 'vue-resource'
 
-
+Vue.use(VueResource)
 Vue.use(VueI18n)
 
 const i18n = new VueI18n({
