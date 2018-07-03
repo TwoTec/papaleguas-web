@@ -2,7 +2,7 @@
   <v-app>
       <v-container>
           <v-form>
-             <v-text-field v-model="name" label="Name" required>
+             <v-text-field v-model="nome" label="Name" required>
 
              </v-text-field>
 
@@ -21,7 +21,7 @@
   export default {
     data() {
       return {
-        name: '',
+        nome: '',
         email: ''
       }
     }
