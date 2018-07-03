@@ -1,6 +1,6 @@
 import Login from './components/Login'
 
-import CadastroCli  from './components/Cadastro-Cli'
+import CadastroCliente  from './components/cliente/CadastroCliente'
 
 export const routes = [
   {
@@ -8,8 +8,8 @@ export const routes = [
     component: Login
   },
   {
-    path: '/CadastroCliente',
-    component: CadastroCli
+    path: '/cadastro/cliente',
+    component: CadastroCliente
 
   }
 ]
