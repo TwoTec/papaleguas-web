@@ -12,6 +12,7 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 Vue.use(VueI18n)
 
+Vue.http.options.root = 'http://localhost:3000';
 const i18n = new VueI18n({
   locale: 'pt_BR'
 })
