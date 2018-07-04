@@ -1,14 +1,36 @@
 <template>
   <v-app>
       <v-container>
-          <v-form>
-             <v-text-field v-model="nome" label="Nome" required>
+          <v-form ref="form" @submit.prevent="salvar()">
+             <v-text-field v-model="Cliente.nome" label="Nome" required>
 
              </v-text-field>
 
-             <v-text-field v-model="email" label="E-mail" required>
+             <v-text-field v-model="Cliente.rg" label="RG" required>
 
              </v-text-field>
+
+             <v-text-field v-model="Cliente.cpf" label="CPF" required>
+
+             </v-text-field>
+
+             <v-text-field v-model="Cliente.email" label="E-mail" required>
+
+             </v-text-field>
+
+             <v-text-field v-model="Cliente.senha" label="Senha" required>
+
+             </v-text-field>
+
+             
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+                <v-btn color="blue lighten-2" flat @click="salvar">Salvar</v-btn>
+                        
+
+            </v-card-actions>
           </v-form>
 
 
@@ -21,9 +43,26 @@
   export default {
     data() {
       return {
-        nome: '',
-        email: ''
+        Cliente: {
+          nome: '',
+          rg: '',
+          cpf:'',
+          email:'',
+          senha:''
+
+        },
+        url: 'http://localhost:3000'
+        
       }
+    },
+    methods: {
+     salvar () {
+       this.$http.post(`${this.url}/clientes`, this.Cliente)
+       .then(res => console.log(res))
+       .catch(error => console.log(error))
+
+     },
     }
+    
   }
 </script>
