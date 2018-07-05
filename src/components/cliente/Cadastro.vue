@@ -40,18 +40,12 @@
 </template>
 
 <script>
+  import Cliente from '../../domain/cliente/Cliente';
   export default {
     data() {
       return {
-        cliente: {
-          nome: '',
-          rg: '',
-          cpf:'',
-          email:'',
-          senha:''
-
-        },
-        url: 'http://localhost:3000'
+        cliente: new Cliente(),
+         url: 'http://localhost:3000'
 
       }
     },
