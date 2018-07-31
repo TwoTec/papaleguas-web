@@ -40,19 +40,20 @@
 </template>
 
 <script>
-  import Cliente from '../../domain/cliente/Cliente';
+  import Cliente from '../../models/cliente/Cliente';
+  import url from '../../models/url/Url';
   export default {
     data() {
       return {
         cliente: new Cliente(),
-         url: 'http://localhost:3000'
+         url: new url()
 
       }
     },
     methods: {
 
       salvar () {
-        this.$http.post(`${this.url}/clientes`, this.cliente)
+        this.$http.post(`${this.url.url}/clientes`, this.cliente)
         .then(res => console.log(res))
         .catch(error => console.log(error))
       },
