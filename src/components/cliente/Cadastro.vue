@@ -41,12 +41,12 @@
 
 <script>
   import Cliente from '../../models/cliente/Cliente';
-  import url from '../../models/url/Url';
+  import Url from '../../models/url/Url';
   export default {
     data() {
       return {
         cliente: new Cliente(),
-         url: new url()
+         url: new Url()
 
       }
     },

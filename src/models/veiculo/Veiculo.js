@@ -1,4 +1,4 @@
-export default class Carro{
+export default class Veiculo{
     constructor(marca,modelo, ano, cor, placa, cidade, UF){
         this.marca=marca;
         this.modelo=modelo;
